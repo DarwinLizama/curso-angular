@@ -1,0 +1,40 @@
+<div>
+    <h1>{{titulo}}</h1>
+    <div>
+        <button class='btn btn-primary' (click)="cargarRegiones()">Cargar Regiones</button>
+        <!-- <div>{{cargandoRegiones}}</div> -->
+        <div *ngIf="mostrarCargandoRegiones()">Cargando Regiones...</div>
+        <div *ngIf="!cargandoRegiones && regiones.length > 0">
+            <br>
+            <div class='row'>
+                <div *ngFor="let region of regiones" class="clase-region col">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{region.nombre}}</h5>
+                            <p class="card-text">Lat: {{region.lat}} y Lon: {{region.lng}}</p>
+                            <a href="#" class="btn btn-primary" (click)="mostrarProvincias(region)">Mostrar Provincias</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <pre>{{ regiones | json }}</pre>
+            <h3>{{ regiones[0].nombre }}</h3> -->
+
+        </div>
+        <!-- <div>
+            Ya están las regiones
+        </div> -->
+    </div>
+
+    <div *ngIf="regionClickeada">
+        <h1>Provincias de la Región {{regionClickeada.nombre}}</h1>
+        <h3>Codigo de la region {{regionClickeada.codigo}} </h3>
+        <div>
+            <app-lista-provincias></app-lista-provincias>
+        </div>
+
+        <!-- TODO: TAREA => Imprimiar una lista de provincias de la región clickeada. Como lista o similar al card de regiones  -->
+        <!-- https://apis.digital.gob.cl/dpa/regiones/{codigo}/provincias -->
+        <!-- {codigo}: Código región -->
+    </div>
+</div>

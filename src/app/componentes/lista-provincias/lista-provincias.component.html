@@ -1,0 +1,15 @@
+<div>
+    <div *ngIf="mostrarCargandoProvincias()">Cargando Provincias...</div>
+    <div>
+        <div *ngFor="let provincia of provincias" class="clase-region col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{provincia.nombre}} </h5>
+                    <p class="card-text">Lat: {{provincia.lat}} y Lon: {{provincia.lng}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
